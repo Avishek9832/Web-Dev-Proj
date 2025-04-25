@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .footer-message {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: white; 
+        }
+        .footer-message .emoji {
+            display: inline-block;
+            transition: transform 0.3s;
+            color: initial; 
+        }
+        .footer-message .emoji:hover {
+            transform: scale(1.5);
+            animation: confetti 1s ease-in-out;
+        }
+        @keyframes confetti {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator-container">
+        <div class="calculator">
+            <div class="display">
+                <div class="previous-operation"></div>
+                <div class="current-value">0</div>
+            </div>
+            <div class="buttons">
+                <button class="function" onclick="handleClear()">C</button>
+                <button class="operator" onclick="handleOperator('÷')">÷</button>
+                <button class="operator" onclick="handleOperator('×')">×</button>
+                <button class="operator" onclick="handleOperator('-')">-</button>
+
+                <button onclick="handleNumber('7')">7</button>
+                <button onclick="handleNumber('8')">8</button>
+                <button onclick="handleNumber('9')">9</button>
+                <button class="operator" onclick="handleOperator('+')">+</button>
+
+                <button onclick="handleNumber('4')">4</button>
+                <button onclick="handleNumber('5')">5</button>
+                <button onclick="handleNumber('6')">6</button>
+                <button class="equals" onclick="handleEquals()">=</button>
+
+                <button onclick="handleNumber('1')">1</button>
+                <button onclick="handleNumber('2')">2</button>
+                <button onclick="handleNumber('3')">3</button>
+                <button onclick="handleNumber('.')">.</button>
+
+                <button onclick="handleNumber('0')">0</button>
+            </div>
+            <div class="footer-message">
+                Made with <span class="emoji">❤️</span> by Avishek Ghosh
+            </div>
+        </div>
+    </div>
+    <script src="calculator.js"></script>
+</body>
+</html>
