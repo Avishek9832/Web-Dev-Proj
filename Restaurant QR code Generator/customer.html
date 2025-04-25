@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Customer Section for Menu Display -->
+        <div id="menu-section" class="section">
+            <h1>Our Menu</h1>
+            <div class="categories">
+                <button class="category-btn active" data-category="starters">Starters</button>
+                <button class="category-btn" data-category="mainCourse">Main Course</button>
+                <button class="category-btn" data-category="desserts">Desserts</button>
+            </div>
+            <div id="menu-items" class="menu-grid"></div>
+        </div>
+
+        <!-- Order Summary Section -->
+        <div id="order-section" class="section">
+            <h2>Your Order</h2>
+            <div id="order-items"></div>
+            <div id="order-total"></div>
+            <div class="button-group">
+                <button id="checkout-btn" class="btn">Proceed to Payment</button>
+                <button id="generate-qr-btn" class="btn">Share Order via QR</button>
+            </div>
+            <div id="payment-options" class="hidden">
+                <h3>Payment Options</h3>
+                <div class="payment-methods">
+                    <div class="payment-option" onclick="selectPaymentMethod('card')">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Card Payment</span>
+                    </div>
+                    <div class="payment-option" onclick="selectPaymentMethod('upi')">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>UPI Payment</span>
+                    </div>
+                    <div class="payment-option" onclick="selectPaymentMethod('netbanking')">
+                        <i class="fas fa-university"></i>
+                        <span>Net Banking</span>
+                    </div>
+                    <div class="payment-option" onclick="selectPaymentMethod('wallet')">
+                        <i class="fas fa-wallet"></i>
+                        <span>Digital Wallet</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- QR Code Section -->
+        <div id="qr-section" class="section hidden">
+            <h2>Share Your Order</h2>
+            <p>Scan this QR code to view the menu and current order</p>
+            <div id="qrcode"></div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.qrcode/1.0/jquery.qrcode.min.js"></script>
+    <script type="module" src="menuData.js"></script>
+    <script type="module" src="customer.js"></script>
+</body>
+</html> 

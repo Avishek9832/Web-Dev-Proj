@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment - Restaurant Menu</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="payment-wrapper">
+            <h1>Complete Your Payment</h1>
+            
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <div id="payment-order-items"></div>
+                <div id="payment-total" class="total"></div>
+            </div>
+
+            <div class="payment-methods">
+                <h2>Select Payment Method</h2>
+                
+                <div class="payment-option" onclick="selectPaymentMethod('card')">
+                    <div class="payment-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <div class="payment-details">
+                        <h3>Credit/Debit Card</h3>
+                        <p>Pay securely with your card</p>
+                    </div>
+                </div>
+
+                <div class="payment-option" onclick="selectPaymentMethod('upi')">
+                    <div class="payment-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <div class="payment-details">
+                        <h3>UPI Payment</h3>
+                        <p>Pay using any UPI app</p>
+                    </div>
+                </div>
+
+                <div class="payment-option" onclick="selectPaymentMethod('netbanking')">
+                    <div class="payment-icon">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="payment-details">
+                        <h3>Net Banking</h3>
+                        <p>Pay through your bank account</p>
+                    </div>
+                </div>
+
+                <div class="payment-option" onclick="selectPaymentMethod('wallet')">
+                    <div class="payment-icon">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                    <div class="payment-details">
+                        <h3>Digital Wallet</h3>
+                        <p>Pay using digital wallets</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Forms -->
+            <div id="card-payment-form" class="payment-form hidden">
+                <h3>Enter Card Details</h3>
+                <form id="card-form">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Expiry Date</label>
+                            <input type="text" placeholder="MM/YY" maxlength="5" required>
+                        </div>
+                        <div class="form-group">
+                            <label>CVV</label>
+                            <input type="password" placeholder="123" maxlength="3" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Card Holder Name</label>
+                        <input type="text" placeholder="Name on card" required>
+                    </div>
+                    <button type="submit" class="btn pay-btn">Pay Now</button>
+                </form>
+            </div>
+
+            <div id="upi-payment-form" class="payment-form hidden">
+                <h3>UPI Payment</h3>
+                <form id="upi-form">
+                    <div class="form-group">
+                        <label>UPI ID</label>
+                        <input type="text" placeholder="yourname@upi" required>
+                    </div>
+                    <button type="submit" class="btn pay-btn">Pay Now</button>
+                </form>
+            </div>
+
+            <div id="netbanking-payment-form" class="payment-form hidden">
+                <h3>Net Banking</h3>
+                <form id="netbanking-form">
+                    <div class="form-group">
+                        <label>Select Bank</label>
+                        <select required>
+                            <option value="">Choose your bank</option>
+                            <option value="sbi">State Bank of India</option>
+                            <option value="hdfc">HDFC Bank</option>
+                            <option value="icici">ICICI Bank</option>
+                            <option value="axis">Axis Bank</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn pay-btn">Pay Now</button>
+                </form>
+            </div>
+
+            <div id="wallet-payment-form" class="payment-form hidden">
+                <h3>Digital Wallet</h3>
+                <form id="wallet-form">
+                    <div class="form-group">
+                        <label>Select Wallet</label>
+                        <select required>
+                            <option value="">Choose your wallet</option>
+                            <option value="paytm">Paytm</option>
+                            <option value="phonepe">PhonePe</option>
+                            <option value="gpay">Google Pay</option>
+                            <option value="amazonpay">Amazon Pay</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn pay-btn">Pay Now</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="payment.js"></script>
+</body>
+</html> 
